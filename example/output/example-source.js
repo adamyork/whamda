@@ -1,0 +1,1 @@
+var o=()=>{console.log("hello world")};var l=(o,l)=>{console.log("well i like",o),console.log("well i dont like",l)};o(),function(){var o=(o)=>{console.log(o)};var l={};l.something=o(1)}.call(this);
