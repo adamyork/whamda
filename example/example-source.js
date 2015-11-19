@@ -3,56 +3,54 @@
  * Copyright(c) 2015 Adam York
  * MIT Licensed
  */
+function helloWorld() {
+    console.log('hello world');
+}
+helloWorld();
 
-// function helloWorld() {
-//     console.log('hello world');
-// }
-
-// helloWorld();
-
-// function helloWorldArgue(likes, dislikes) {
-//     console.log('well i like', likes);
-//     console.log('well i dont like', dislikes);
-// }
+function helloWorldArgue(likes, dislikes) {
+    console.log('well i like', likes);
+    console.log('well i dont like', dislikes);
+}
 
 var helloWorldImVar = function() {
     console.log('stuff');
 };
 
-//helloWorldImVar();
-// var helloWorldMeToo = function(thing, differentThing) {
-//     console.log('more stuff');
-// };
+helloWorldImVar();
+var helloWorldMeToo = function(thing, differentThing) {
+    console.log('more stuff');
+};
 
-// var obj = {};
+var obj = {};
 
-// obj.functionOnObject = obj.aliasFunctionOnObject = function() {
-//     console.log('do a thing');
-// };
+obj.functionOnObject = obj.aliasFunctionOnObject = function() {
+    console.log('do a thing');
+};
 
-// obj.functionOnObject();
+obj.functionOnObject();
 
-// (function() {
-//     console.log('applied closured');
-// }.call(this));
+(function(a, b, c) {
+    console.log('applied closured');
+}.call(this));
 
-// (function() {
-//     console.log('invoked closured');
-// })(this);
+(function() {
+    console.log('invoked closured');
+})(this);
 
-// (function() {
-//     var insideAClosure = function() {
-//         console.log('im inside a closure');
-//     };
-//     insideAClosure();
+(function() {
+    var insideAClosure = function() {
+        console.log('im inside a closure');
+    };
+    insideAClosure();
 
-//     function createReduce(likes, dislikes) {
-//         console.log('well i like', likes);
-//         console.log('well i dont like', dislikes);
-//     }
-//     _ = {};
-//     _.reduce = _.foldl = _.inject = createReduce(-1);
-// })(this);
+    function createThing(likes, dislikes) {
+        console.log('well i like', likes);
+        console.log('well i dont like', dislikes);
+    }
+    var smog = {};
+    smog.blah = smog.bleh = smog.yuck = createThing(-1);
+})(this);
 
 (function() {
     var tmp = {};
