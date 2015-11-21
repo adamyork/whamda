@@ -2,7 +2,7 @@
  * whamda
  * Copyright(c) 2015 Adam York
  * MIT Licensed
- */
+//  */
 function helloWorld() {
     console.log('hello world');
 }
@@ -16,28 +16,21 @@ function helloWorldArgue(likes, dislikes) {
 var helloWorldImVar = function() {
     console.log('stuff');
 };
-
 helloWorldImVar();
 var helloWorldMeToo = function(thing, differentThing) {
     console.log('more stuff');
 };
-
 var obj = {};
-
 obj.functionOnObject = obj.aliasFunctionOnObject = function() {
     console.log('do a thing');
 };
-
 obj.functionOnObject();
-
 (function(a, b, c) {
     console.log('applied closured');
 }.call(this));
-
 (function() {
     console.log('invoked closured');
 })(this);
-
 (function() {
     var insideAClosure = function() {
         console.log('im inside a closure');
@@ -59,4 +52,37 @@ obj.functionOnObject();
         console.log(arg);
     }
     tmp.something = doSomething(1);
+}.call(this));
+
+(function() {
+    function noop() {}
+    var tmp = {};
+    tmp.reduce = noop(1);
+}).call(this);
+
+function testNoopWithAssignment(a, b) {
+    var q = 2;
+}
+
+function testNoopWithAssignments(a, b) {
+    var q = 2;
+    console.log(2);
+}
+
+function testNested(a, b) {
+    var q = 2;
+    (function(s) {
+        console.log(s);
+    })('hi');
+    var x = function() {
+        console.log('other stuff');
+    };
+}
+testNested();
+var exports = {};
+
+(function() {
+    var something = exports.isArray;
+    var f = function() {};
+    exports = f;
 }.call(this));
