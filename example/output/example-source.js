@@ -1,1 +1,1 @@
-(function(){( whamz=()=>{console.log("helloworld")},(whamz.prototype=Object.prototype))}).call(this);
+(function(){console.log("bleh");var n=()=>{},whamz=(n.prototype=Object.prototype),o=function(n){return n instanceof o?n:void 0};o(),n()}).call(this);

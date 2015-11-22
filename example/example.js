@@ -8,4 +8,4 @@
 
 var whamda = require('../index.js');
 
-whamda.process(['underscore.js'], 'output');
+whamda.process(['example-source.js'], 'output');

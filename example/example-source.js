@@ -82,7 +82,7 @@
 
     // var q = {};
 
-    console.log('helloworld');
+    // console.log('helloworld');
 
     // function myfunc2(s, b) {
     //     console.log('hello');
@@ -101,5 +101,14 @@
     // (function() {
     //     console.log('world');
     // })('hello');
+    console.log('bleh');
+    var Ctor = function() {};
+
+    var _ = function(obj) {
+        if (obj instanceof _) return obj;
+    };
+
+    _();
+    Ctor();
 
 }.call(this));
