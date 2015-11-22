@@ -78,37 +78,42 @@
 //     };
 // }
 // testNested();
+// (function() {
+//     function named() {
+//         console.log('named');
+//     }
+//     var q = named;
+//     named();
+//     q();
+// }.call(this));
 (function() {
-
-    // var q = {};
-
-    // console.log('helloworld');
-
-    // function myfunc2(s, b) {
-    //     console.log('hello');
-    // }
-    // myfunc2();
-
-    // function myfunc3() {
-    //     console.log('hello');
-    // }
-    // myfunc3();
-
-    // var t = function(thing, thing2) {
-    //     return thing;
-    // };
-    // t();
-    // (function() {
-    //     console.log('world');
-    // })('hello');
-    console.log('bleh');
+    var root = this;
+    var previousUnderscore = root._;
+    var ArrayProto = Array.prototype,
+        ObjProto = Object.prototype,
+        FuncProto = Function.prototype;
+    var
+        push = ArrayProto.push,
+        slice = ArrayProto.slice,
+        toString = ObjProto.toString,
+        hasOwnProperty = ObjProto.hasOwnProperty;
+    var
+        nativeIsArray = Array.isArray,
+        nativeKeys = Object.keys,
+        nativeBind = FuncProto.bind,
+        nativeCreate = Object.create;
     var Ctor = function() {};
-
     var _ = function(obj) {
         if (obj instanceof _) return obj;
+        if (!(this instanceof _)) return new _(obj);
+        this._wrapped = obj;
     };
-
-    _();
-    Ctor();
-
+    if (typeof exports !== 'undefined') {
+        if (typeof module !== 'undefined' && module.exports) {
+            exports = module.exports = _;
+        }
+        exports._ = _;
+    } else {
+        root._ = _;
+    }
 }.call(this));
