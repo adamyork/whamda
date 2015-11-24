@@ -57,7 +57,7 @@
     }
 
     // Current version.
-    /**_.VERSION = '1.8.3';
+    _.VERSION = '1.8.3';
 
     // Internal function that returns an efficient (for current engines) version
     // of the passed-in callback, to be repeatedly applied in other Underscore
@@ -226,7 +226,7 @@
 
     // Return all the elements that pass a truth test.
     // Aliased as `select`.
-    _.filter = _.select = function(obj, predicate, context) {
+    /*_.filter = _.select = function(obj, predicate, context) {
         var results = [];
         predicate = cb(predicate, context);
         _.each(obj, function(value, index, list) {

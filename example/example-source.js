@@ -117,11 +117,35 @@
 //         root._ = _;
 //     }
 // }.call(this));
+// (function() {
+//     var y = this,
+//         x = (Array.isArray, function(a, b) {
+//             console.log(a + b);
+//             console.log('hello');
+//         });
+//     y.x = x;
+// }.call(this));
+
+// (function() {
+//     var a = this,
+//         b = (Array.isArray, function(a, b) {
+//             console.log(a + b);
+//             console.log('hello');
+//         });
+//     a.b = b;
+// }.call(this));
 
 (function() {
-    var y = this,
-        x = (Array.isArray, function(a, b) {
-            console.log(a + b);
-            console.log('hello');
+    var _ = {};
+    var cb = function() {};
+    var predicate = function() {};
+    _.each = function() {};
+    _.filter = _.select = function(obj, predicate, context) {
+        var results = [];
+        predicate = cb(predicate, context);
+        _.each(obj, function(value, index, list) {
+            if (predicate(value, index, list)) results.push(value);
         });
+        return results;
+    };
 }.call(this));

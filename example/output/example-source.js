@@ -1,1 +1,1 @@
-(new Function([],"(()=>{Array.isArray,new Function([Object.keys({o:null})[0],Object.keys({l:null})[0]],"((o,l)=>{console.log(o+l),console.log(\"hello\")})(o,l)")})()")).call(this);
+(new Function([],"(()=>{var n={},c=new Function([],\"(()=>{})()\");n.each=new Function([],'(()=>{})()'),n.filter=n.select=new Function(['t','i','u'],'((t,i,u)=>{var e=[];return i=c(i,u),n.each(t,new Function(['n','c','t'],'((n,c,t)=>{i(n,c,t)&&e.push(n)})(n,c,t)')),e})(t,i,u)')})()")).call(this);
