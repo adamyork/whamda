@@ -1,25 +1,26 @@
 {
-  "name": "whamda",
-  "version": "0.0.1",
-  "description": "node module for javascript obfuscation. exploitation of the lambda, arrow functions in ECMA 6.",
-  "repository": "adamyork/whamda",
-  "author": "Adam York",
-  "license": "MIT",
-  "keywords": [
+    "name": "whamda",
+    "version": "0.0.1",
+    "description": "node module for javascript obfuscation. exploitation of the lambda, arrow functions in ECMA 6.",
+    "repository": "adamyork/whamda",
+    "author": "Adam York",
+    "license": "MIT",
+    "keywords": [
     "obfuscation",
     "lambda"
   ],
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "files": [
+    "engines": {
+        "node": ">= 0.10.0"
+    },
+    "files": [
     "LICENSE",
     "README.md",
     "index.js",
     "lib/"
   ],
-  "dependencies": {
-    "uglify-js": "2.6.1",
-    "underscore-node": "^0.1.2"
-  }
+    "dependencies": {
+        "uglify-js": "2.6.1",
+        "underscore-node": "^0.1.2",
+        "source-map": "*"
+    }
 }
