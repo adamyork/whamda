@@ -21,6 +21,6 @@
     "dependencies": {
         "uglify-js": "2.6.1",
         "underscore-node": "^0.1.2",
-        "source-map": "*"
+        "chalk": "1.1.1"
     }
 }

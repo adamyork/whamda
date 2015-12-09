@@ -8,4 +8,4 @@
 
 var whamda = require('../index.js');
 
-whamda.process(['whamda-test-cases.js'], 'output');
+whamda.process(['underscore.js'], 'output');
