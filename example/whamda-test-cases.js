@@ -179,10 +179,10 @@ testNested();
     var tmp3 = new named2.HelloWorldType('test', 'test2', 'test3');
 
     var Custom = function() {};
-    var named3 = function(prototype) {
+    var named3 = function() {
         var s = new Custom; //jshint ignore:line
         return s;
-    };
+    }.call(this);
 
     var result = (HelloWorldType && HelloWorldType.prototype.prop1 === 'value1' && tmp && tmp.prop1 ===
         'value1' &&
