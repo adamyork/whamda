@@ -1066,7 +1066,7 @@
     };
 
     // Return a copy of the object without the blacklisted properties.
-    _.omit = function(obj, iteratee, context) {
+    /*_.omit = function(obj, iteratee, context) {
         if (_.isFunction(iteratee)) {
             iteratee = _.negate(iteratee);
         } else {
@@ -1573,5 +1573,5 @@
         define('underscore', [], function() {
             return _;
         });
-    }
+    }*/
 }.call(this));

@@ -3,7 +3,6 @@
  * Copyright(c) 2015 Adam York
  * MIT Licensed
 //  */
-
 function addTestOutput(name, result) {
     var table = document.getElementsByClassName('table-tests')[0];
     console.log('table', table);
@@ -153,7 +152,6 @@ testNested();
 (function() {
     addTestOutput('IFFE immediately following complex quotation is parsed', true);
 }.call(this));
-
 (function() {
     function HelloWorldType(msg, test) {
         this.msg = msg;
@@ -180,8 +178,15 @@ testNested();
 
     var tmp3 = new named2.HelloWorldType('test', 'test2', 'test3');
 
-    var result = (HelloWorldType && HelloWorldType.prototype.prop1 === 'value1' && tmp && tmp.prop1 === 'value1' &&
-        tmp.msg === 'hello world' && type2Called);
+    var Custom = function() {};
+    var named3 = function(prototype) {
+        var s = new Custom; //jshint ignore:line
+        return s;
+    };
+
+    var result = (HelloWorldType && HelloWorldType.prototype.prop1 === 'value1' && tmp && tmp.prop1 ===
+        'value1' &&
+        tmp.msg === 'hello world' && type2Called && named3 instanceof Custom);
     addTestOutput('Class contstruction , new instantiation replacement', result);
 
 }.call(this));
