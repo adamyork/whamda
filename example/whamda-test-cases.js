@@ -13,7 +13,6 @@ function addTestOutput(name, result) {
     resultCell.innerHTML = (result) ? '<p style="color:green;text-align:center">&#10004;</p>' :
         '<p style="color:red;text-align:center">&#10008;</p>';
 }
-
 function helloWorld() {
     addTestOutput('Simple named Function', true);
 }
@@ -35,14 +34,12 @@ var helloWorldScopedArg = function(arg1, arg2) {
     addTestOutput('Simple scoped Function with arguments', result);
 };
 helloWorldScopedArg('hello', 'world');
-
 var obj = {};
 obj.functionOnObject = obj.aliasFunctionOnObject = function() {
     var result = (obj && obj.functionOnObject && obj.aliasFunctionOnObject);
     addTestOutput('Scoped Function in assignment chain. Hoisted.', result);
 };
 obj.functionOnObject();
-
 (function() {
     addTestOutput('IIFE style Function', this);
 })(this);
@@ -51,7 +48,6 @@ obj.functionOnObject();
     var result = (a && b && c);
     addTestOutput('IIFE style Function with arguments', result);
 }.call(this, 'hellow', 'world', 'hello'));
-
 (function() {
     var internalsCalled = false;
     var internals = function() {
@@ -104,7 +100,6 @@ function testNested(a, b) {
     addTestOutput('Named function with Internal IIFE', result);
 }
 testNested();
-
 (function() {
     var callCount = 0;
 
@@ -117,7 +112,6 @@ testNested();
     var result = (named && q === named && callCount === 2);
     addTestOutput('IFFE with internal ivocation and assignemnt', result);
 }.call(this));
-
 (function() {
     var called = false;
     var argsPresent = false;
@@ -131,7 +125,6 @@ testNested();
     var result = (y && x && typeof x === 'function' && y.x === x && called && argsPresent);
     addTestOutput('IFFE with hoisted private members and Anonymous function assignment', result);
 }.call(this));
-
 (function() {
     var called = false;
     var argsPresent = false;
@@ -148,7 +141,6 @@ testNested();
     var result = (z && g && g.anything && typeof g.anything === 'function' && called && argsPresent);
     addTestOutput('IFFE with complex quotation. I.E. the regex is non terminating', result);
 }.call(this));
-
 (function() {
     addTestOutput('IFFE immediately following complex quotation is parsed', true);
 }.call(this));
@@ -156,9 +148,7 @@ testNested();
     function HelloWorldType(msg, test) {
         this.msg = msg;
     }
-
     HelloWorldType.prototype.prop1 = 'value1';
-
     var tmp = new HelloWorldType('hello world', 'hello');
 
     var named = function() {
@@ -178,15 +168,71 @@ testNested();
 
     var tmp3 = new named2.HelloWorldType('test', 'test2', 'test3');
 
-    var Custom = function() {};
+    function Custom() {}
     var named3 = function() {
         var s = new Custom; //jshint ignore:line
         return s;
     }.call(this);
-
     var result = (HelloWorldType && HelloWorldType.prototype.prop1 === 'value1' && tmp && tmp.prop1 ===
         'value1' &&
-        tmp.msg === 'hello world' && type2Called && named3 instanceof Custom);
+        tmp.msg === 'hello world' && type2Called && named3 instanceof Custom && !(tmp3 instanceof HelloWorldType)
+    );
+    console.log('1', HelloWorldType);
+    console.log('2', HelloWorldType.prototype.prop1 === 'value1');
+    console.log('3', tmp);
+    console.log('4', tmp.prop1 === 'value1');
+    console.log('5', tmp.msg === 'hello world');
+    console.log('6', type2Called);
+    console.log('7', named3 instanceof Custom);
+    console.log('8', typeof tmp3);
+    console.log('9', typeof tmp);
+    console.log('10', tmp3 instanceof HelloWorldType);
     addTestOutput('Class contstruction , new instantiation replacement', result);
+}.call(this));
+(function() {
+    var called;
 
+    function NamedFunctionClass(msg) {
+        called = (msg === 'hello') ? true : false;
+    }
+    var T = NamedFunctionClass;
+    var z = new T('hello');
+    var called2;
+    var Q = function() {
+        console.log('arguments', arguments);
+        console.log('asdfasdf');
+        called2 = true;
+    };
+    var G = Q;
+    var F = G;
+    console.log(new F('asdfsdf'));
+    var P = F;
+    console.log(new P('true'), new P(true));
+    var y = new G('scubs');
+    console.log('y is', y);
+    var result = (z instanceof T && T === NamedFunctionClass && called && called2);
+    console.log('1', z instanceof T);
+    console.log('2', T === NamedFunctionClass);
+    console.log('3', called);
+    console.log('4', called2);
+    addTestOutput('Class contstruction , new instantiation by reference replacement', result);
+}.call(this));
+(function() {
+    var _ = {};
+    var hasAnArgumentsObject = false;
+    _.scoped = function(arg1, arg2) {
+        hasAnArgumentsObject = arguments !== null;
+        console.log(arguments);
+        return '';
+    };
+    var f = function() {};
+    _.scoped(f, this);
+    var result = (hasAnArgumentsObject);
+    addTestOutput('Replaced functions have arguments object', result);
+}.call(this));
+(function() {
+    var _ = function() {};
+    _.prototype.toString = function() {
+        return '' + this._wrapped;
+    };
 }.call(this));

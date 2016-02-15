@@ -1066,7 +1066,7 @@
     };
 
     // Return a copy of the object without the blacklisted properties.
-    /*_.omit = function(obj, iteratee, context) {
+    _.omit = function(obj, iteratee, context) {
         if (_.isFunction(iteratee)) {
             iteratee = _.negate(iteratee);
         } else {
@@ -1257,7 +1257,6 @@
             return _.has(obj, 'callee');
         };
     }
-
     // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
     // IE 11 (#1621), and in Safari 8 (#1929).
     if (typeof /./ != 'function' && typeof Int8Array != 'object') {
@@ -1306,7 +1305,6 @@
         root._ = previousUnderscore;
         return this;
     };
-
     // Keep the identity function around for default iteratees.
     _.identity = function(value) {
         return value;
@@ -1430,13 +1428,11 @@
         '\u2028': 'u2028',
         '\u2029': 'u2029'
     };
-
     var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
 
     var escapeChar = function(match) {
         return '\\' + escapes[match];
     };
-
     // JavaScript micro-templating, similar to John Resig's implementation.
     // Underscore templating handles arbitrary delimiters, preserves whitespace,
     // and correctly escapes quotes within interpolated code.
@@ -1561,7 +1557,6 @@
     _.prototype.toString = function() {
         return '' + this._wrapped;
     };
-
     // AMD registration happens at the end for compatibility with AMD loaders
     // that may not enforce next-turn semantics on modules. Even though general
     // practice for AMD registration is to be anonymous, underscore registers
@@ -1573,5 +1568,5 @@
         define('underscore', [], function() {
             return _;
         });
-    }*/
+    }
 }.call(this));
