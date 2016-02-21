@@ -13,6 +13,11 @@ whamda.process(['file1.js', 'file2.js', 'file3.js', 'file4.js'], 'output');
 
 See the [example](../master/example) directory for a working sample and all of my test cases.
 
+
+##What
+
+Whamda is node.js module that will replace traditional function references in a file with arrow functions.
+
 ````javascript
 ((obj) => {
     obj.prototype = Function.apply(0).prototype;
@@ -39,12 +44,6 @@ See the [example](../master/example) directory for a working sample and all of m
     console.log("IIFE style Function with internal Functions of various types", s)
 })(this)
 ````
-
-##What
-
-Whamda is node.js module that will replace traditional function references in a file with arrow functions.
-
-
 ##How
 
 The strategy employed is fairly primitive and rather brute force, however it involves
