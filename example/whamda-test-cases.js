@@ -5,7 +5,6 @@
 //  */
 function addTestOutput(name, result) {
     var table = document.getElementsByClassName('table-tests')[0];
-    console.log('table', table);
     var row = table.insertRow(-1);
     var nameCell = row.insertCell(-1);
     var resultCell = row.insertCell(-1);
@@ -13,6 +12,7 @@ function addTestOutput(name, result) {
     resultCell.innerHTML = (result) ? '<p style="color:green;text-align:center">&#10004;</p>' :
         '<p style="color:red;text-align:center">&#10008;</p>';
 }
+
 function helloWorld() {
     addTestOutput('Simple named Function', true);
 }
@@ -177,16 +177,6 @@ testNested();
         'value1' &&
         tmp.msg === 'hello world' && type2Called && named3 instanceof Custom && !(tmp3 instanceof HelloWorldType)
     );
-    console.log('1', HelloWorldType);
-    console.log('2', HelloWorldType.prototype.prop1 === 'value1');
-    console.log('3', tmp);
-    console.log('4', tmp.prop1 === 'value1');
-    console.log('5', tmp.msg === 'hello world');
-    console.log('6', type2Called);
-    console.log('7', named3 instanceof Custom);
-    console.log('8', typeof tmp3);
-    console.log('9', typeof tmp);
-    console.log('10', tmp3 instanceof HelloWorldType);
     addTestOutput('Class contstruction , new instantiation replacement', result);
 }.call(this));
 (function() {
@@ -199,22 +189,17 @@ testNested();
     var z = new T('hello');
     var called2;
     var Q = function() {
-        console.log('arguments', arguments);
-        console.log('asdfasdf');
         called2 = true;
     };
     var G = Q;
     var F = G;
-    console.log(new F('asdfsdf'));
+    var fWithArg = new F('anArgument');
     var P = F;
-    console.log(new P('true'), new P(true));
-    var y = new G('scubs');
-    console.log('y is', y);
+    //TODO: This should be replaced and are not
+    //var pWithStringArg = new P('true');
+    //var pWithBooleArg = new P(true);
+    var y = new G('hworld');
     var result = (z instanceof T && T === NamedFunctionClass && called && called2);
-    console.log('1', z instanceof T);
-    console.log('2', T === NamedFunctionClass);
-    console.log('3', called);
-    console.log('4', called2);
     addTestOutput('Class contstruction , new instantiation by reference replacement', result);
 }.call(this));
 (function() {
@@ -229,10 +214,4 @@ testNested();
     _.scoped(f, this);
     var result = (hasAnArgumentsObject);
     addTestOutput('Replaced functions have arguments object', result);
-}.call(this));
-(function() {
-    var _ = function() {};
-    _.prototype.toString = function() {
-        return '' + this._wrapped;
-    };
 }.call(this));

@@ -1,6 +1,6 @@
 {
     "name": "whamda",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "node module for javascript obfuscation. exploitation of the lambda, arrow functions in ECMA 6.",
     "repository": "adamyork/whamda",
     "author": "Adam York",
