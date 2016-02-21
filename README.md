@@ -65,7 +65,7 @@ I continue to sample popular javascript libraries for testing, and by no means i
 
 At some point I will publish this to npm, but for now you will need to grab the library from here.
 
-There are a handful of less than optimal functions in whamda, mostly dealing with scope and context matches , that leverage while loops and are recursively called. In very large documents with lots of 'new' function invocations, the computation time is exponential , ever growing<sup>growing<sup> with the size of the file.
+There are a handful of less than optimal functions in whamda, mostly dealing with scope and context matches , that leverage while loops and are recursively called. In very large documents with lots of 'new' function invocations, the computation time is exponential , ever growing<sup>growing</sup> with the size of the file.
 
 If you have any suggestions for improvements , I would love to hear them.
 
