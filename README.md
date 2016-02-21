@@ -4,14 +4,14 @@ node module for javascript obfuscation. exploitation of the lambda, arrow functi
 To use
 - download whamda
 - include whamda
-- call whamda process([list-of-files,seperated-by-comma],'output-directory')\
+- call whamda process([list-of-files,seperated-by-comma],'output-directory')
 
 ````javascript
 var whamda = require('whamda.js');
-whamda.process(['file1.js', 'file2.js', 'file3.js', 'file4.js'], 'output');\
+whamda.process(['file1.js', 'file2.js', 'file3.js', 'file4.js'], 'output');
 ````
 
-See the [example](../blob/master/example) directory for a working sample and all of my test cases.
+See the [example](../master/example) directory for a working sample and all of my test cases.
 
 ````javascript
 ((obj) => {
